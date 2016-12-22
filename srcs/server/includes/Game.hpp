@@ -1,21 +1,23 @@
-#ifndef 	__CLIENT_HPP__
-# define 	__CLIENT_HPP__
+#ifndef 	__GAME_HPP__
+# define 	__GAME_HPP__
 
 #include "main.hpp"
+#include "Player.hpp"
 
 class Game {
 
-	public:
+public:
 	Game();
 	~Game();
 
 	void 			run();
+	vector<Player> 	players;
 
+	void 			setIndex(int);
+	int 			getIndex();
+
+private:
 	int 			index;
-
-	private:
-	list<Player> 	players;
-	
 };
 
 #endif

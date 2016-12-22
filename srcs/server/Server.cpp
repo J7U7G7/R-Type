@@ -1,12 +1,11 @@
 #include "Server.hpp"
 
 Server::Server() { 
-	games = NULL;
 	is_running = true;
 	game_id = 0;
 }
 
-~Server::Server() { }
+Server::~Server() { }
 
 
 // retourne true si toutes les games crées sont pleines (== 4 joueurs)
@@ -27,7 +26,7 @@ int			Server::createNewGame() {
 
 	Game 	newGameObject;
 
-	newGameObject->index = game_id;
+	newGameObject.setIndex(game_id);
 	games.push_back(newGameObject);
 	game_id++;
 }
@@ -46,6 +45,5 @@ int		Server::run() {
 			createNewGame();
 
 		handleConnections();
-		sleep(1);
 	}
 }
