@@ -1,0 +1,4 @@
+#ifndef		__MONSTERDYNLIBHANDLER_HPP__
+# define	__MONSTERDYNLIBHANDLER_HPP__
+
+#endif
