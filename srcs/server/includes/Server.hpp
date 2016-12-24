@@ -1,7 +1,7 @@
 #ifndef 	__SERVER_HPP__
 # define 	__SERVER_HPP__
 
-#include "main.hpp"
+#include <stdlib.h>
 
 class Server {
 
@@ -12,7 +12,7 @@ class Server {
 	int 		run();
 	
 	private:
-	list<Game>	games;
+	//list<Games>	games;
 	bool		is_running;
 	int 		game_id;	// index des games, s'incrémente à chaque newGame
 

@@ -2,9 +2,9 @@
 
 int 		main() {
 
-	Server 	server;
+	Server	srv;
 
-	server.run();
+    srv.run();
 
 	return (0);
 }
