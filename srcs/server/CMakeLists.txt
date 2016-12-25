@@ -13,14 +13,26 @@ include_directories(includes)
 #   set()
 
 ####### Sources à compiler #######
-set(SRCS
-        main.cpp
-        Games.cpp
-        Monster.cpp
-        MonsterDynLibHandler.cpp
-        Server.cpp
+if (WIN32)
+    set(SRCS
+            main.cpp
+            Games.cpp
+            Monster.cpp
+            MonsterDynLibHandler.cpp
+            Server.cpp
+            Windows/Win_Socket.cpp
 
-        )
+            )
+else()
+    set(SRCS
+            main.cpp
+            Games.cpp
+            Monster.cpp
+            MonsterDynLibHandler.cpp
+            Server.cpp
+            Unix/Unix_Socket.cpp
+            )
+endif ()
 
 
 add_executable(r_type_server

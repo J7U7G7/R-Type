@@ -1,6 +1,8 @@
 #ifndef 	__SERVER_HPP__
 # define 	__SERVER_HPP__
 
+
+
 class Server {
 
 	public:
@@ -18,5 +20,10 @@ class Server {
 	bool 		allGamesFull();
 	void 		handleConnections();
 };
+#ifdef WIN32
+    #include "Win_Socket.hpp"
+#else
+    #include "Unix_Socket.hpp"
+#endif
 
 #endif

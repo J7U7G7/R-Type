@@ -1,8 +1,10 @@
 #include <Games.hpp>
 #include "Server.hpp"
 
+
 Server::Server() { 
 	//games = NULL;
+    Socket  socket;
 	is_running = true;
 	game_id = 0;
 }
@@ -51,5 +53,7 @@ int		Server::run() {
         sleep(1);  ------> non cross-platform
 
         */
+        return 0;
 	}
+    return 0;
 }
