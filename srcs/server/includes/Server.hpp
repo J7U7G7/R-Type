@@ -10,10 +10,10 @@ public:
 	Server();
 	~Server();
 
-	int 		run();
+	int 			run();
 	vector<Game>	games;
 	
-private:
+	private:
 	bool			is_running;
 	int 			game_id;	// index des games, s'incrémente à chaque newGame
 
@@ -21,5 +21,10 @@ private:
 	bool 	allGamesFull();
 	void 	handleConnections();
 };
+#ifdef WIN32
+    #include "Win_Socket.hpp"
+#else
+    #include "Unix_Socket.hpp"
+#endif
 
 #endif

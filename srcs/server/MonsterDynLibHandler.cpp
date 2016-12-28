@@ -1,5 +1,4 @@
 #include "MonsterDynLibHandler.hpp"
-#include "Monster.hpp"
 
 MonsterDynLibHandler::MonsterDynLibHandler() { }
 
@@ -8,9 +7,7 @@ MonsterDynLibHandler::~MonsterDynLibHandler() { }
 
 void 	MonsterDynLibHandler::loadMonster(string typeName, Monster* monster, bool printDebug) {
 
-	this->libHandler = new AbstractLib("monster/" + typeName);
-
-	cout << "Test 1" << endl;
+	this->libHandler = new AbstractLib("monsters/" + typeName);
 
 	typedef string 	(*getType)();
 	typedef int		(*getMaxHealth)();
@@ -20,10 +17,7 @@ void 	MonsterDynLibHandler::loadMonster(string typeName, Monster* monster, bool 
 	typedef float 	(*getFireRate)();
 	typedef int 	(*getSpeed)();
 
-	cout << "Test 2" << endl;
-
 	monster->setType((*(libHandler->getSymLink<getType>("getType")))());
-	cout << "Test 3" << endl;
 	
 	monster->setMaxHealth((*(libHandler->getSymLink<getMaxHealth>("getMaxHealth")))());
 	monster->setDamage((*(libHandler->getSymLink<getDamage>("getDamage")))());
@@ -31,8 +25,6 @@ void 	MonsterDynLibHandler::loadMonster(string typeName, Monster* monster, bool 
 	monster->setPosY((*(libHandler->getSymLink<getPosY>("getPosY")))());
 	monster->setFireRate((*(libHandler->getSymLink<getFireRate>("getFireRate")))());
 	monster->setSpeed((*(libHandler->getSymLink<getSpeed>("getSpeed")))());
-
-	cout << "Test 4" << endl;
 
 	if (printDebug)
 		this->printLoadedMonsterInfos(monster);

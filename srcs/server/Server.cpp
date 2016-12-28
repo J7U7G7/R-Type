@@ -1,6 +1,10 @@
 #include "Server.hpp"
 
+
 Server::Server() { 
+    Socket  socket;
+
+	games.clear();
 	is_running = true;
 	game_id = 0;
 }
@@ -29,6 +33,8 @@ int			Server::createNewGame() {
 	newGameObject.setIndex(game_id);
 	games.push_back(newGameObject);
 	game_id++;
+
+	return (0);
 }
 
 void 		Server::handleConnections() {
@@ -45,5 +51,11 @@ int		Server::run() {
 			createNewGame();
 
 		handleConnections();
+
+		/*
+        sleep(1);  ------> non cross-platform
+
+        */
 	}
+    return 0;
 }
