@@ -8,8 +8,8 @@ MonsterDynLibHandler::~MonsterDynLibHandler() { }
 
 void 	MonsterDynLibHandler::loadMonster(string typeName, Monster* monster, bool printDebug) {
 
-	this->libHandler = new AbstractLib(string("monster/") + typeName);
-	
+	this->libHandler = new AbstractLib("monster/" + typeName);
+
 	cout << "Test 1" << endl;
 
 	typedef string 	(*getType)();

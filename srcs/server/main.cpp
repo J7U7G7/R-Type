@@ -8,14 +8,14 @@ int 		main() {
 
 
 
-	// Chargement d'un monstre depuis une librairie dynamique
-	/*MonsterDynLibHandler 	dynLibHandler;
+	//Chargement d'un monstre depuis une librairie dynamique
+	MonsterDynLibHandler 	dynLibHandler;
 	Monster 				TestMonstre1;
 	Monster 				TestMonstre2;
 
 	dynLibHandler.loadMonster("FireStingray", &TestMonstre1, true);
 	dynLibHandler.loadMonster("GreenPanther", &TestMonstre2, true); 
-	*/
+	
 
 	return (0);
 }

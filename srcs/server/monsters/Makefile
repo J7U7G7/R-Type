@@ -1,7 +1,7 @@
 SONAME 		= FireStingray.so GreenPanther.so
 DLLNAME		= FireStingray.dll GreenPanther.dll
 CC 			= g++
-CXXFLAGS 	= -W -Wall -O5 -g -shared -fPIC -I../includes -fPIC
+CXXFLAGS 	= -W -Wall -O5 -g -shared -fPIC -I../includes -fPIC -export-dynamic
 
 OBJS		= MonsterInfo.o
 
