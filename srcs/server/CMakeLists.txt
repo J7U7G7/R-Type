@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.5.1)
 
 project(r-type)
 
@@ -6,27 +6,26 @@ set(EXECUTABLE_OUTPUT_PATH ../../bin)
 
 include_directories(includes)
 
-
 ####### Sources à compiler #######
+
+set(SRCS
+        main.cpp
+        Game.cpp
+        Monster.cpp
+        MonsterDynLibHandler.cpp
+        Server.cpp
+        Player.cpp)
+
+## OS Dependent Sources
+
 if (WIN32)
-    set(SRCS
-            main.cpp
-            Game.cpp
-            Monster.cpp
-            MonsterDynLibHandler.cpp
-            Server.cpp
-            Player.cpp
+    set(SRCS_OS_SPECIFIC
             Windows/Win_Socket.cpp
             Windows/WindowsDynLibHandler.cpp
             )
-else()
-    set(SRCS
-            main.cpp
-            Game.cpp
-            Monster.cpp
-            MonsterDynLibHandler.cpp
-            Server.cpp
-            Player.cpp
+
+elseif(Linux)
+    set(SRCS_OS_SPECIFIC
             Unix/Unix_Socket.cpp
             Unix/UnixDynLibHandler.cpp
             )
@@ -35,8 +34,10 @@ endif ()
 
 add_executable(r_type_server
         ${SRCS}
+        ${SRCS_OS_SPECIFIC}
         )
 
+##### Compilation Flags #####
 target_link_libraries(r_type_server
         ${CMAKE_DL_LIBS}
         )
