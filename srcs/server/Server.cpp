@@ -1,17 +1,45 @@
-#include "Server.hpp"
+#include "includes/Server.hpp"
+#include <iostream>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+//#include "includes/Player.hpp"
+#include "includes/Game.hpp"
 
+Server::Server(int port) : is_running(false) { 
 
-Server::Server() { 
-    Socket  socket;
-
-	games.clear();
-	is_running = true;
+	socket = new AbstractSocket(port);
 	game_id = 0;
+	game = NULL;
 }
 
-Server::~Server() { }
+Server::~Server() { 
+	delete socket;
+}
 
+Player*     Server::findPlayer(std::string& ip)
+{
+    PlayerList::iterator pl, plEnd = players.end();
+	for (pl = players.begin(); pl != plEnd; ++pl)
+	{
+		if ((*pl)->getIp() == ip)
+            return (*pl);
+	}
 
+    return (NULL);
+}
+
+Server::PlayerList& Server::getPlayers()
+{
+    return players;
+}
+
+/*
 // retourne true si toutes les games crées sont pleines (== 4 joueurs)
 bool 		Server::allGamesFull() {
 
@@ -30,32 +58,48 @@ int			Server::createNewGame() {
 
 	Game 	newGameObject;
 
-	newGameObject.setIndex(game_id);
+	newGameObject->index = game_id;
 	games.push_back(newGameObject);
 	game_id++;
-
-	return (0);
 }
 
 void 		Server::handleConnections() {
 
 
 }
+*/
 
+void 		Server::stop() {
+	is_running = false;
+}
+void		Server::run() {
 
-int		Server::run() {
+	std::string ip;
+	std::string buff;
+	Player* p;
 
-	while (is_running) {
-		
-		if (allGamesFull())
-			createNewGame();
-
-		handleConnections();
-
-		/*
-        sleep(1);  ------> non cross-platform
-
-        */
+	std::cout << "Welcome to R-Type Game !" << std::endl;
+	std::cout << "Waiting for players ...\n" << std::endl;
+	is_running = true;
+	while ((is_running == true))
+	{
+		buff = socket->recv(100, &ip);
+        if ((p = findPlayer(ip)))
+        {
+            p->recv(buff);
+        }
+        else if (p == 0)
+        {
+            std::cout << "New client\n" << ip << std::endl;
+            if (!game)
+                game = new Game(this);
+            if (game->getPlayers().size() >= MAX_PLAYERS)
+            {
+                game = new Game(this);
+            }
+            std::cout << "Added to the game numero : " << game->getID() << "\n\n" << std::endl;
+            p = new Player(game, ip);
+			players.push_back(p);
+        }
 	}
-    return 0;
 }

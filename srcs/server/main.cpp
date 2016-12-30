@@ -1,11 +1,11 @@
 #include "main.hpp"
-#include "Server.hpp"
+#include "includes/Server.hpp"
 #include "MonsterDynLibHandler.hpp"
 
 int 		main() {
 	Server 	server;
 
-	//server.run();
+	server.run();
 
 	//Chargement d'un monstre depuis une librairie dynamique
 	

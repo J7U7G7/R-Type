@@ -1,16 +1,25 @@
 #ifndef 	__PLAYER_HPP__
 # define 	__PLAYER_HPP____
 
-#include "main.hpp"
+#include <string>
+#include "ISocket.hpp"
 
-class Player {
+class Game;
 
+class Player
+{
 public:
-	Player();
+	Player(Game* game, std::string ip);
 	~Player();
+	void		send(std::string data); // send data to graphic terminal
+	void		recv(std::string& data); // callback on data receive
+    std::string      getIp() const;
 
-	string 		name;
-	
+private:
+	int 		id_player;
+	Game*		game;
+	ISocket*	socket;
+	std::string		ip;
 };
 
 #endif
