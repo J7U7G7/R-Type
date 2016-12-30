@@ -1,17 +1,24 @@
-CXX=g++
-NAME=R-Type_client
-DIRN=../
-LDLIBS=include/SMFL-2.4.1/
-FLLIBS=-lsfml-graphics -lsfml-window -lsfml-system
-SRCS=main.cpp
+CXX 		= g++
+NAME		= r-type-client
+LIBSFML		= ../../libs/SFML-2.4.1/includes
+CXX_FLAGS	= -stdlib=libc++
+LDFLAGS 	= -lsfml-graphics
+LINKLIB 	= ../../libs/SFML-2.4.1/lib
+SRCS 		= *.cpp
+OBJS		= *.o
 
-all:	client
+all: $(NAME)
 
-client: 
-	$(CXX) -o $(NAME) $(SRCS) $(FLLIBS)
-	mv $(NAME) $(DIRN)
+$(NAME): 
+	$(CXX) -c $(SRCS) -I$(LIBSFML) -Iincludes
+	$(CXX) $(OBJS) -o $(NAME) -L$(LINKLIB) $(LDFLAGS)
 
 clean:
-	cd $(DIRN) && rm -f $(NAME)
+	rm -rf *.o
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all
 
 
