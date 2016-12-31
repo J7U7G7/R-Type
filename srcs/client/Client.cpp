@@ -8,7 +8,7 @@ Client::~Client() { }
 
 int 		Client::run() {
 
-	 sf::Window window(sf::VideoMode(800, 600), "My window");
+	 sf::Window window(sf::VideoMode(1080, 720), "R-Type Client");
 
     // on fait tourner le programme jusqu'à ce que la fenêtre soit fermée
     while (window.isOpen())

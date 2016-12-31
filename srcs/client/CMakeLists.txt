@@ -5,7 +5,7 @@ project(r-type)
 set(EXECUTABLE_OUTPUT_PATH ../../bin)
 
 include_directories(includes
-        ../../libs/SFML-2.4.1/includes
+        ../../libs/SFML-2.4.1/include
         )
 
 set(SRCS

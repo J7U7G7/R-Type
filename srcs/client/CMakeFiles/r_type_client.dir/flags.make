@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/slymp/Epitech/Projets/R-Type/srcs/client/includes -I/home/slymp/Epitech/Projets/R-Type/srcs/client/../../libs/SFML-2.4.1/includes 
+CXX_INCLUDES = -I/home/slymp/Epitech/Projets/R-Type/srcs/client/includes -I/home/slymp/Epitech/Projets/R-Type/srcs/client/../../libs/SFML-2.4.1/include 
 
