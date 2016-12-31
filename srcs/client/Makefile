@@ -150,6 +150,33 @@ Client.cpp.s:
 	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/Client.cpp.s
 .PHONY : Client.cpp.s
 
+NetworkManager.o: NetworkManager.cpp.o
+
+.PHONY : NetworkManager.o
+
+# target to build an object file
+NetworkManager.cpp.o:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/NetworkManager.cpp.o
+.PHONY : NetworkManager.cpp.o
+
+NetworkManager.i: NetworkManager.cpp.i
+
+.PHONY : NetworkManager.i
+
+# target to preprocess a source file
+NetworkManager.cpp.i:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/NetworkManager.cpp.i
+.PHONY : NetworkManager.cpp.i
+
+NetworkManager.s: NetworkManager.cpp.s
+
+.PHONY : NetworkManager.s
+
+# target to generate assembly for a file
+NetworkManager.cpp.s:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/NetworkManager.cpp.s
+.PHONY : NetworkManager.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... Client.o"
 	@echo "... Client.i"
 	@echo "... Client.s"
+	@echo "... NetworkManager.o"
+	@echo "... NetworkManager.i"
+	@echo "... NetworkManager.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

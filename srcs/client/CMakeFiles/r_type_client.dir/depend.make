@@ -74,6 +74,12 @@ CMakeFiles/r_type_client.dir/Client.cpp.o: ../../libs/SFML-2.4.1/include/SFML/Wi
 CMakeFiles/r_type_client.dir/Client.cpp.o: ../../libs/SFML-2.4.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/r_type_client.dir/Client.cpp.o: Client.cpp
 CMakeFiles/r_type_client.dir/Client.cpp.o: includes/Client.hpp
+CMakeFiles/r_type_client.dir/Client.cpp.o: includes/NetworkManager.hpp
+CMakeFiles/r_type_client.dir/Client.cpp.o: includes/main.hpp
+
+CMakeFiles/r_type_client.dir/NetworkManager.cpp.o: NetworkManager.cpp
+CMakeFiles/r_type_client.dir/NetworkManager.cpp.o: includes/NetworkManager.hpp
+CMakeFiles/r_type_client.dir/NetworkManager.cpp.o: includes/main.hpp
 
 CMakeFiles/r_type_client.dir/main.cpp.o: ../../libs/SFML-2.4.1/include/SFML/Config.hpp
 CMakeFiles/r_type_client.dir/main.cpp.o: ../../libs/SFML-2.4.1/include/SFML/Graphics.hpp
@@ -148,5 +154,6 @@ CMakeFiles/r_type_client.dir/main.cpp.o: ../../libs/SFML-2.4.1/include/SFML/Wind
 CMakeFiles/r_type_client.dir/main.cpp.o: ../../libs/SFML-2.4.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/r_type_client.dir/main.cpp.o: main.cpp
 CMakeFiles/r_type_client.dir/main.cpp.o: includes/Client.hpp
+CMakeFiles/r_type_client.dir/main.cpp.o: includes/NetworkManager.hpp
 CMakeFiles/r_type_client.dir/main.cpp.o: includes/main.hpp
 

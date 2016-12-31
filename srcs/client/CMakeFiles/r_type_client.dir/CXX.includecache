@@ -644,6 +644,10 @@ SFML/Config.hpp
 Client.hpp
 /home/slymp/Epitech/Projets/R-Type/srcs/client/Client.hpp
 
+/home/slymp/Epitech/Projets/R-Type/srcs/client/NetworkManager.cpp
+NetworkManager.hpp
+/home/slymp/Epitech/Projets/R-Type/srcs/client/NetworkManager.hpp
+
 /home/slymp/Epitech/Projets/R-Type/srcs/client/main.cpp
 main.hpp
 /home/slymp/Epitech/Projets/R-Type/srcs/client/main.hpp
@@ -655,6 +659,14 @@ SFML/Graphics.hpp
 -
 SFML/Window.hpp
 -
+main.hpp
+includes/main.hpp
+NetworkManager.hpp
+includes/NetworkManager.hpp
+
+includes/NetworkManager.hpp
+main.hpp
+includes/main.hpp
 
 includes/main.hpp
 iostream

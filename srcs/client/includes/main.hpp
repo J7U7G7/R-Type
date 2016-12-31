@@ -11,6 +11,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define BUFLEN 512
+#define PORT 4242
+
 using namespace std;
 
 #endif

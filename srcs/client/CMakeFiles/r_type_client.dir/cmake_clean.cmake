@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/r_type_client.dir/main.cpp.o"
   "CMakeFiles/r_type_client.dir/Client.cpp.o"
+  "CMakeFiles/r_type_client.dir/NetworkManager.cpp.o"
   "/home/slymp/Epitech/Projets/R-Type/bin/r_type_client.pdb"
   "/home/slymp/Epitech/Projets/R-Type/bin/r_type_client"
 )

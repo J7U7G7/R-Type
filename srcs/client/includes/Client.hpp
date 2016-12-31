@@ -3,6 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include "main.hpp"
+#include "NetworkManager.hpp"
 
 class Client {
 
@@ -12,7 +14,9 @@ public:
 	int		run();
 
 	private:
-	
+	int 			connectionToServer(sf::RenderWindow *);
+
+	NetworkManager  network;
 };
 
 #endif

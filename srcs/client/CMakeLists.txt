@@ -10,7 +10,8 @@ include_directories(includes
 
 set(SRCS
         main.cpp
-        Client.cpp)
+        Client.cpp
+        NetworkManager.cpp)
 
 link_directories(../../libs/SFML-2.4.1/lib)
 add_executable(r_type_client ${SRCS})
