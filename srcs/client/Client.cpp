@@ -8,23 +8,19 @@ Client::~Client() { }
 
 int 		Client::run() {
 
-	sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!");
-    sf::CircleShape shape(100.f);
-    
-    shape.setFillColor(sf::Color::Green);
+	 sf::Window window(sf::VideoMode(800, 600), "My window");
 
+    // on fait tourner le programme jusqu'à ce que la fenêtre soit fermée
     while (window.isOpen())
     {
+        // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
         sf::Event event;
         while (window.pollEvent(event))
         {
+            // évènement "fermeture demandée" : on ferme la fenêtre
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
-        window.clear();
-        window.draw(shape);
-        window.display();
     }
 
     return 0;

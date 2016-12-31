@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/slymp/Epitech/Projets/R-Type/srcs/client/Client.cpp
+Client.hpp
+/home/slymp/Epitech/Projets/R-Type/srcs/client/Client.hpp
+
+/home/slymp/Epitech/Projets/R-Type/srcs/client/main.cpp
+main.hpp
+/home/slymp/Epitech/Projets/R-Type/srcs/client/main.hpp
+Client.hpp
+/home/slymp/Epitech/Projets/R-Type/srcs/client/Client.hpp
+
+includes/Client.hpp
+SFML/Graphics.hpp
+-
+SFML/Window.hpp
+-
+
+includes/main.hpp
+iostream
+-
+arpa/inet.h
+-
+netinet/in.h
+-
+stdio.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+
