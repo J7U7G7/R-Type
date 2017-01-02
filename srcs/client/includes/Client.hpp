@@ -14,6 +14,7 @@ public:
 	int		run();
 
 	private:
+	int 			connectgame(sf::RenderWindow *);
 	int 			connectionToServer(sf::RenderWindow *);
 	int 			play(sf::RenderWindow *);
 

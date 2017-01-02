@@ -9,7 +9,7 @@ public:
 	NetworkManager();
 	~NetworkManager();
 
-	void 	send(string);
+	int 	send(string);
 	int 	createSocket(const char *);
 
 private:

@@ -16,6 +16,7 @@ int 		Client::run() {
         cout << "Failed to load font" << endl;
 
     this->connectionToServer(&window);
+    this->connectgame(&window);
     window.clear();
     this->play(&window);
 
@@ -59,8 +60,14 @@ void        Client::catchKeyboardInputs() {
 int 		Client::play(sf::RenderWindow *window) {
 
 	sf::Text    text;
+    sf::Sprite sprite;
+    sf::Texture background;
+
+    if (!background.loadFromFile("../../ressources/sprites/mapground.png"))
+        cout << "Failed to load Background map " << endl;
 
     cout << "PLAY!" << endl;
+    sprite.setTexture(background);
 	while (window->isOpen()) {
         
         sf::Event   event;
@@ -74,8 +81,9 @@ int 		Client::play(sf::RenderWindow *window) {
             catchKeyboardInputs();
 
             // Load things to draw
-
+            window->draw(sprite);
             window->display();
+            
             window->clear();
         }
     }
@@ -123,9 +131,55 @@ int         Client::connectionToServer(sf::RenderWindow *window) {
                     return (0);
                 }
                 text_address = "";
+                return (0);
             }
         }
     }
     return (0);
 }
 
+int         Client::connectgame(sf::RenderWindow *window)
+{
+        string      text_address = "";
+    sf::Text    text;
+
+    text.setFont(font);
+    text.setCharacterSize(20);
+
+    while (window->isOpen()) {
+
+        sf::Event   event;
+
+        while (window->pollEvent(event)) {
+            window->clear(sf::Color::Black);
+            if (event.type == sf::Event::Closed)
+                window->close();
+
+            if (event.type == sf::Event::TextEntered) {
+                if ((event.text.unicode > 30 &&
+                    (event.text.unicode < 127
+                        || event.text.unicode > 159))) {
+                    text_address += static_cast<char>(event.text.unicode);
+                }
+                
+                text.setString("Do you want to join a game ? " + text_address);
+                window->draw(text);
+                window->display();
+            }
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) &&
+                !text_address.empty()) {
+                if (network.send(text_address.c_str()) != -1) {
+                    cout << "Success ! You join a R-Type game !" << endl;
+                    text.setString("Connected to the game");
+                    window->clear();
+                    window->draw(text);                    
+                    window->display();
+                    return (0);
+                }
+                text_address = "";
+            }
+        }
+    }
+    return (0);
+}
