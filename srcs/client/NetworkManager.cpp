@@ -22,7 +22,7 @@ int 		NetworkManager::createSocket(const char *address) {
     return (0);
 }
 
-void 		NetworkManager::send(string s) {
+int 		NetworkManager::send(string s) {
 
     if (!strncpy(buf, s.c_str(), sizeof(buf)))
         fprintf(stderr, "empty message error\n");
@@ -30,7 +30,10 @@ void 		NetworkManager::send(string s) {
     buf[sizeof(buf) - 1] = 0;
 
 	if (sendto(sockfd, buf, BUFLEN, 0, (struct sockaddr*)&serv_addr, slen) == -1)
+    {
             fprintf(stderr, "sendto() error\n");
+            return (-1);
+    }
 
-    usleep(5000);
+    //usleep(5000);
 }

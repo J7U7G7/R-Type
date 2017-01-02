@@ -16,11 +16,16 @@ int 		Client::run() {
         cout << "Failed to load font" << endl;
 
     this->connectionToServer(&window);
+<<<<<<< HEAD
 
     if (this->fillCatalog() == -1) {
         cout << "Critical error happened while filling catalog" << endl;
         return (-1);
     }
+=======
+    this->connectgame(&window);
+    window.clear();
+>>>>>>> 84b37499c5fda474eb21ec03dae8aaf48a0e4aa9
     this->play(&window);
 
     return (0);
@@ -63,7 +68,13 @@ void        Client::catchKeyboardInputs() {
 int 		Client::play(sf::RenderWindow *window) {
 
 	sf::Text    text;
+    sf::Sprite sprite;
+    sf::Texture background;
 
+    if (!background.loadFromFile("../../ressources/sprites/mapground.png"))
+        cout << "Failed to load Background map " << endl;
+
+<<<<<<< HEAD
     // Données brutes pour test
     PlayerShip player(500, 500);
     player_list.push_back(player);
@@ -74,6 +85,10 @@ int 		Client::play(sf::RenderWindow *window) {
     EnnemyShip ennemy(1000, 500);
     ennemy_list.push_back(ennemy);
 
+=======
+    cout << "PLAY!" << endl;
+    sprite.setTexture(background);
+>>>>>>> 84b37499c5fda474eb21ec03dae8aaf48a0e4aa9
 	while (window->isOpen()) {
         
         sf::Event   event;
@@ -89,11 +104,16 @@ int 		Client::play(sf::RenderWindow *window) {
             catchKeyboardInputs();
 
             // Load things to draw
+<<<<<<< HEAD
             renderPlayers(window);
             renderBullets(window);
             renderEnnemyShips(window);
 
+=======
+            window->draw(sprite);
+>>>>>>> 84b37499c5fda474eb21ec03dae8aaf48a0e4aa9
             window->display();
+            
             window->clear();
         }
     }
@@ -165,12 +185,14 @@ int         Client::connectionToServer(sf::RenderWindow *window) {
                     return (0);
                 }
                 text_address = "";
+                return (0);
             }
         }
     }
     return (0);
 }
 
+<<<<<<< HEAD
 int            Client::fillCatalog() {
 
     sf::Texture tmp;
@@ -202,4 +224,50 @@ int         Client::drawObject(sf::RenderWindow *window, int pos_x, int pos_y, i
     sprite.setRotation(rotate);
     sprite.move(offset_x, offset_y);
     window->draw(sprite);
+=======
+int         Client::connectgame(sf::RenderWindow *window)
+{
+        string      text_address = "";
+    sf::Text    text;
+
+    text.setFont(font);
+    text.setCharacterSize(20);
+
+    while (window->isOpen()) {
+
+        sf::Event   event;
+
+        while (window->pollEvent(event)) {
+            window->clear(sf::Color::Black);
+            if (event.type == sf::Event::Closed)
+                window->close();
+
+            if (event.type == sf::Event::TextEntered) {
+                if ((event.text.unicode > 30 &&
+                    (event.text.unicode < 127
+                        || event.text.unicode > 159))) {
+                    text_address += static_cast<char>(event.text.unicode);
+                }
+                
+                text.setString("Do you want to join a game ? " + text_address);
+                window->draw(text);
+                window->display();
+            }
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) &&
+                !text_address.empty()) {
+                if (network.send(text_address.c_str()) != -1) {
+                    cout << "Success ! You join a R-Type game !" << endl;
+                    text.setString("Connected to the game");
+                    window->clear();
+                    window->draw(text);                    
+                    window->display();
+                    return (0);
+                }
+                text_address = "";
+            }
+        }
+    }
+    return (0);
+>>>>>>> 84b37499c5fda474eb21ec03dae8aaf48a0e4aa9
 }

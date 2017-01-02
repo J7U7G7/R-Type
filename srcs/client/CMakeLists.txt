@@ -22,6 +22,7 @@ endif()
 
 link_directories(../../libs/SFML-2.4.1/lib)
 add_executable(r_type_client ${SRCS})
+add_definitions(-std=c++11)
 
 target_link_libraries(r_type_client
         -lsfml-graphics
