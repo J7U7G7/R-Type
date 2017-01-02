@@ -4,8 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/slymp/Epitech/Projets/R-Type/srcs/client/Bullet.cpp" "/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles/r_type_client.dir/Bullet.cpp.o"
   "/home/slymp/Epitech/Projets/R-Type/srcs/client/Client.cpp" "/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles/r_type_client.dir/Client.cpp.o"
+  "/home/slymp/Epitech/Projets/R-Type/srcs/client/EnnemyShip.cpp" "/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o"
   "/home/slymp/Epitech/Projets/R-Type/srcs/client/NetworkManager.cpp" "/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles/r_type_client.dir/NetworkManager.cpp.o"
+  "/home/slymp/Epitech/Projets/R-Type/srcs/client/PlayerShip.cpp" "/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles/r_type_client.dir/PlayerShip.cpp.o"
   "/home/slymp/Epitech/Projets/R-Type/srcs/client/main.cpp" "/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles/r_type_client.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

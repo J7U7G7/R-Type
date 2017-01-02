@@ -11,7 +11,10 @@ include_directories(includes
 set(SRCS
         main.cpp
         Client.cpp
-        NetworkManager.cpp)
+        NetworkManager.cpp
+        Bullet.cpp
+        PlayerShip.cpp
+        EnnemyShip.cpp)
 
 if (Linux)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")

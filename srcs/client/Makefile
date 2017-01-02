@@ -123,6 +123,33 @@ r_type_client/fast:
 	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/build
 .PHONY : r_type_client/fast
 
+Bullet.o: Bullet.cpp.o
+
+.PHONY : Bullet.o
+
+# target to build an object file
+Bullet.cpp.o:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/Bullet.cpp.o
+.PHONY : Bullet.cpp.o
+
+Bullet.i: Bullet.cpp.i
+
+.PHONY : Bullet.i
+
+# target to preprocess a source file
+Bullet.cpp.i:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/Bullet.cpp.i
+.PHONY : Bullet.cpp.i
+
+Bullet.s: Bullet.cpp.s
+
+.PHONY : Bullet.s
+
+# target to generate assembly for a file
+Bullet.cpp.s:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/Bullet.cpp.s
+.PHONY : Bullet.cpp.s
+
 Client.o: Client.cpp.o
 
 .PHONY : Client.o
@@ -150,6 +177,33 @@ Client.cpp.s:
 	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/Client.cpp.s
 .PHONY : Client.cpp.s
 
+EnnemyShip.o: EnnemyShip.cpp.o
+
+.PHONY : EnnemyShip.o
+
+# target to build an object file
+EnnemyShip.cpp.o:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o
+.PHONY : EnnemyShip.cpp.o
+
+EnnemyShip.i: EnnemyShip.cpp.i
+
+.PHONY : EnnemyShip.i
+
+# target to preprocess a source file
+EnnemyShip.cpp.i:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/EnnemyShip.cpp.i
+.PHONY : EnnemyShip.cpp.i
+
+EnnemyShip.s: EnnemyShip.cpp.s
+
+.PHONY : EnnemyShip.s
+
+# target to generate assembly for a file
+EnnemyShip.cpp.s:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/EnnemyShip.cpp.s
+.PHONY : EnnemyShip.cpp.s
+
 NetworkManager.o: NetworkManager.cpp.o
 
 .PHONY : NetworkManager.o
@@ -176,6 +230,33 @@ NetworkManager.s: NetworkManager.cpp.s
 NetworkManager.cpp.s:
 	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/NetworkManager.cpp.s
 .PHONY : NetworkManager.cpp.s
+
+PlayerShip.o: PlayerShip.cpp.o
+
+.PHONY : PlayerShip.o
+
+# target to build an object file
+PlayerShip.cpp.o:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/PlayerShip.cpp.o
+.PHONY : PlayerShip.cpp.o
+
+PlayerShip.i: PlayerShip.cpp.i
+
+.PHONY : PlayerShip.i
+
+# target to preprocess a source file
+PlayerShip.cpp.i:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/PlayerShip.cpp.i
+.PHONY : PlayerShip.cpp.i
+
+PlayerShip.s: PlayerShip.cpp.s
+
+.PHONY : PlayerShip.s
+
+# target to generate assembly for a file
+PlayerShip.cpp.s:
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/PlayerShip.cpp.s
+.PHONY : PlayerShip.cpp.s
 
 main.o: main.cpp.o
 
@@ -213,12 +294,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... r_type_client"
+	@echo "... Bullet.o"
+	@echo "... Bullet.i"
+	@echo "... Bullet.s"
 	@echo "... Client.o"
 	@echo "... Client.i"
 	@echo "... Client.s"
+	@echo "... EnnemyShip.o"
+	@echo "... EnnemyShip.i"
+	@echo "... EnnemyShip.s"
 	@echo "... NetworkManager.o"
 	@echo "... NetworkManager.i"
 	@echo "... NetworkManager.s"
+	@echo "... PlayerShip.o"
+	@echo "... PlayerShip.i"
+	@echo "... PlayerShip.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

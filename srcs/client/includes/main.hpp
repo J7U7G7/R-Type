@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <vector>
 
 #define BUFLEN 512
 #define PORT 4242

@@ -6,6 +6,11 @@
 #include "main.hpp"
 #include "NetworkManager.hpp"
 
+#include "Bullet.hpp"
+#include "EnnemyShip.hpp"
+#include "PlayerShip.hpp"
+
+
 class Client {
 
 public:
@@ -14,13 +19,22 @@ public:
 	int		run();
 
 	private:
-	int 			connectionToServer(sf::RenderWindow *);
-	int 			play(sf::RenderWindow *);
+	int 	connectionToServer(sf::RenderWindow *);
+	int 	play(sf::RenderWindow *);
+	void 	catchKeyboardInputs();
+	int 	fillCatalog();
+	int     drawObject(sf::RenderWindow *, int, int, int, float, float, int, int, int);
 
-	void 			catchKeyboardInputs();
-	NetworkManager  network;
-    sf::Font   		font;
+	void 	renderPlayers(sf::RenderWindow *);
+	void 	renderBullets(sf::RenderWindow *);
+	void 	renderEnnemyShips(sf::RenderWindow *);
 
+	NetworkManager  	network;
+    sf::Font   			font;
+    vector<sf::Texture> catalog;
+    vector<PlayerShip> 	player_list;
+    vector<Bullet> 		bullet_list;
+    vector<EnnemyShip> 	ennemy_list;
 };
 
 #endif

@@ -129,11 +129,86 @@ CMakeFiles/r_type_client.dir/NetworkManager.cpp.o.provides: CMakeFiles/r_type_cl
 CMakeFiles/r_type_client.dir/NetworkManager.cpp.o.provides.build: CMakeFiles/r_type_client.dir/NetworkManager.cpp.o
 
 
+CMakeFiles/r_type_client.dir/Bullet.cpp.o: CMakeFiles/r_type_client.dir/flags.make
+CMakeFiles/r_type_client.dir/Bullet.cpp.o: Bullet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/r_type_client.dir/Bullet.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/r_type_client.dir/Bullet.cpp.o -c /home/slymp/Epitech/Projets/R-Type/srcs/client/Bullet.cpp
+
+CMakeFiles/r_type_client.dir/Bullet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/r_type_client.dir/Bullet.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/slymp/Epitech/Projets/R-Type/srcs/client/Bullet.cpp > CMakeFiles/r_type_client.dir/Bullet.cpp.i
+
+CMakeFiles/r_type_client.dir/Bullet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/r_type_client.dir/Bullet.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/slymp/Epitech/Projets/R-Type/srcs/client/Bullet.cpp -o CMakeFiles/r_type_client.dir/Bullet.cpp.s
+
+CMakeFiles/r_type_client.dir/Bullet.cpp.o.requires:
+
+.PHONY : CMakeFiles/r_type_client.dir/Bullet.cpp.o.requires
+
+CMakeFiles/r_type_client.dir/Bullet.cpp.o.provides: CMakeFiles/r_type_client.dir/Bullet.cpp.o.requires
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/Bullet.cpp.o.provides.build
+.PHONY : CMakeFiles/r_type_client.dir/Bullet.cpp.o.provides
+
+CMakeFiles/r_type_client.dir/Bullet.cpp.o.provides.build: CMakeFiles/r_type_client.dir/Bullet.cpp.o
+
+
+CMakeFiles/r_type_client.dir/PlayerShip.cpp.o: CMakeFiles/r_type_client.dir/flags.make
+CMakeFiles/r_type_client.dir/PlayerShip.cpp.o: PlayerShip.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/r_type_client.dir/PlayerShip.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/r_type_client.dir/PlayerShip.cpp.o -c /home/slymp/Epitech/Projets/R-Type/srcs/client/PlayerShip.cpp
+
+CMakeFiles/r_type_client.dir/PlayerShip.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/r_type_client.dir/PlayerShip.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/slymp/Epitech/Projets/R-Type/srcs/client/PlayerShip.cpp > CMakeFiles/r_type_client.dir/PlayerShip.cpp.i
+
+CMakeFiles/r_type_client.dir/PlayerShip.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/r_type_client.dir/PlayerShip.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/slymp/Epitech/Projets/R-Type/srcs/client/PlayerShip.cpp -o CMakeFiles/r_type_client.dir/PlayerShip.cpp.s
+
+CMakeFiles/r_type_client.dir/PlayerShip.cpp.o.requires:
+
+.PHONY : CMakeFiles/r_type_client.dir/PlayerShip.cpp.o.requires
+
+CMakeFiles/r_type_client.dir/PlayerShip.cpp.o.provides: CMakeFiles/r_type_client.dir/PlayerShip.cpp.o.requires
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/PlayerShip.cpp.o.provides.build
+.PHONY : CMakeFiles/r_type_client.dir/PlayerShip.cpp.o.provides
+
+CMakeFiles/r_type_client.dir/PlayerShip.cpp.o.provides.build: CMakeFiles/r_type_client.dir/PlayerShip.cpp.o
+
+
+CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o: CMakeFiles/r_type_client.dir/flags.make
+CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o: EnnemyShip.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o -c /home/slymp/Epitech/Projets/R-Type/srcs/client/EnnemyShip.cpp
+
+CMakeFiles/r_type_client.dir/EnnemyShip.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/r_type_client.dir/EnnemyShip.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/slymp/Epitech/Projets/R-Type/srcs/client/EnnemyShip.cpp > CMakeFiles/r_type_client.dir/EnnemyShip.cpp.i
+
+CMakeFiles/r_type_client.dir/EnnemyShip.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/r_type_client.dir/EnnemyShip.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/slymp/Epitech/Projets/R-Type/srcs/client/EnnemyShip.cpp -o CMakeFiles/r_type_client.dir/EnnemyShip.cpp.s
+
+CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o.requires:
+
+.PHONY : CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o.requires
+
+CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o.provides: CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o.requires
+	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o.provides.build
+.PHONY : CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o.provides
+
+CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o.provides.build: CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o
+
+
 # Object files for target r_type_client
 r_type_client_OBJECTS = \
 "CMakeFiles/r_type_client.dir/main.cpp.o" \
 "CMakeFiles/r_type_client.dir/Client.cpp.o" \
-"CMakeFiles/r_type_client.dir/NetworkManager.cpp.o"
+"CMakeFiles/r_type_client.dir/NetworkManager.cpp.o" \
+"CMakeFiles/r_type_client.dir/Bullet.cpp.o" \
+"CMakeFiles/r_type_client.dir/PlayerShip.cpp.o" \
+"CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o"
 
 # External object files for target r_type_client
 r_type_client_EXTERNAL_OBJECTS =
@@ -141,9 +216,12 @@ r_type_client_EXTERNAL_OBJECTS =
 /home/slymp/Epitech/Projets/R-Type/bin/r_type_client: CMakeFiles/r_type_client.dir/main.cpp.o
 /home/slymp/Epitech/Projets/R-Type/bin/r_type_client: CMakeFiles/r_type_client.dir/Client.cpp.o
 /home/slymp/Epitech/Projets/R-Type/bin/r_type_client: CMakeFiles/r_type_client.dir/NetworkManager.cpp.o
+/home/slymp/Epitech/Projets/R-Type/bin/r_type_client: CMakeFiles/r_type_client.dir/Bullet.cpp.o
+/home/slymp/Epitech/Projets/R-Type/bin/r_type_client: CMakeFiles/r_type_client.dir/PlayerShip.cpp.o
+/home/slymp/Epitech/Projets/R-Type/bin/r_type_client: CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o
 /home/slymp/Epitech/Projets/R-Type/bin/r_type_client: CMakeFiles/r_type_client.dir/build.make
 /home/slymp/Epitech/Projets/R-Type/bin/r_type_client: CMakeFiles/r_type_client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable /home/slymp/Epitech/Projets/R-Type/bin/r_type_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable /home/slymp/Epitech/Projets/R-Type/bin/r_type_client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/r_type_client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -154,6 +232,9 @@ CMakeFiles/r_type_client.dir/build: /home/slymp/Epitech/Projets/R-Type/bin/r_typ
 CMakeFiles/r_type_client.dir/requires: CMakeFiles/r_type_client.dir/main.cpp.o.requires
 CMakeFiles/r_type_client.dir/requires: CMakeFiles/r_type_client.dir/Client.cpp.o.requires
 CMakeFiles/r_type_client.dir/requires: CMakeFiles/r_type_client.dir/NetworkManager.cpp.o.requires
+CMakeFiles/r_type_client.dir/requires: CMakeFiles/r_type_client.dir/Bullet.cpp.o.requires
+CMakeFiles/r_type_client.dir/requires: CMakeFiles/r_type_client.dir/PlayerShip.cpp.o.requires
+CMakeFiles/r_type_client.dir/requires: CMakeFiles/r_type_client.dir/EnnemyShip.cpp.o.requires
 
 .PHONY : CMakeFiles/r_type_client.dir/requires
 

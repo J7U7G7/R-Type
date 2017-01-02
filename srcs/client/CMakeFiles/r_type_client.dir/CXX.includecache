@@ -640,19 +640,33 @@ SFML/Config.hpp
 
 ../../libs/SFML-2.4.1/include/SFML/Window/WindowStyle.hpp
 
+/home/slymp/Epitech/Projets/R-Type/srcs/client/Bullet.cpp
+Bullet.hpp
+/home/slymp/Epitech/Projets/R-Type/srcs/client/Bullet.hpp
+
 /home/slymp/Epitech/Projets/R-Type/srcs/client/Client.cpp
 Client.hpp
 /home/slymp/Epitech/Projets/R-Type/srcs/client/Client.hpp
 
+/home/slymp/Epitech/Projets/R-Type/srcs/client/EnnemyShip.cpp
+EnnemyShip.hpp
+/home/slymp/Epitech/Projets/R-Type/srcs/client/EnnemyShip.hpp
+
 /home/slymp/Epitech/Projets/R-Type/srcs/client/NetworkManager.cpp
 NetworkManager.hpp
 /home/slymp/Epitech/Projets/R-Type/srcs/client/NetworkManager.hpp
+
+/home/slymp/Epitech/Projets/R-Type/srcs/client/PlayerShip.cpp
+PlayerShip.hpp
+/home/slymp/Epitech/Projets/R-Type/srcs/client/PlayerShip.hpp
 
 /home/slymp/Epitech/Projets/R-Type/srcs/client/main.cpp
 main.hpp
 /home/slymp/Epitech/Projets/R-Type/srcs/client/main.hpp
 Client.hpp
 /home/slymp/Epitech/Projets/R-Type/srcs/client/Client.hpp
+
+includes/Bullet.hpp
 
 includes/Client.hpp
 SFML/Graphics.hpp
@@ -663,10 +677,20 @@ main.hpp
 includes/main.hpp
 NetworkManager.hpp
 includes/NetworkManager.hpp
+Bullet.hpp
+includes/Bullet.hpp
+EnnemyShip.hpp
+includes/EnnemyShip.hpp
+PlayerShip.hpp
+includes/PlayerShip.hpp
+
+includes/EnnemyShip.hpp
 
 includes/NetworkManager.hpp
 main.hpp
 includes/main.hpp
+
+includes/PlayerShip.hpp
 
 includes/main.hpp
 iostream
@@ -686,5 +710,7 @@ unistd.h
 stdlib.h
 -
 string.h
+-
+vector
 -
 
