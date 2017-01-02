@@ -12,29 +12,44 @@ int 		Client::run() {
 
     window.setFramerateLimit(60);
 
-    this->connectionToServer(&window);
+    if (!font.loadFromFile("../../ressources/fonts/arial.ttf"))
+        cout << "Failed to load font" << endl;
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-    }
+    this->connectionToServer(&window);
+    this->play(&window);
 
     return (0);
 }
 
+int 		Client::play(sf::RenderWindow *window) {
+
+	sf::Text    text;
+
+	 while (window->isOpen())
+    {
+        sf::Event   event;
+
+        while (window->pollEvent(event)) {
+            window->clear(sf::Color::Black);
+
+            if (event.type == sf::Event::Closed)
+                window->close();
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+                
+            }
+
+            
+        }
+    }
+
+	return (0);
+}
+
 int         Client::connectionToServer(sf::RenderWindow *window) {
 
-    string          text_address = "";
-
+    string 		text_address = "";
     sf::Text    text;
-    sf::Font    font;
-
-    if (!font.loadFromFile("../../ressources/fonts/arial.ttf"))
-        cout << "Failed to load font" << endl;
 
     text.setFont(font);
     text.setCharacterSize(20);
@@ -64,7 +79,7 @@ int         Client::connectionToServer(sf::RenderWindow *window) {
                 !text_address.empty()) {
                 if (network.createSocket(text_address.c_str()) != -1) {
                     cout << "Connected" << endl;
-                    text.setString("Connected");
+                    text.setString("Connected.");
                     window->clear(sf::Color::Black);
                     window->draw(text);                    
                     window->display();

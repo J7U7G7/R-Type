@@ -15,8 +15,11 @@ public:
 
 	private:
 	int 			connectionToServer(sf::RenderWindow *);
+	int 			play(sf::RenderWindow *);
 
 	NetworkManager  network;
+    sf::Font   		font;
+
 };
 
 #endif
