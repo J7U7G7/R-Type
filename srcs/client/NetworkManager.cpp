@@ -22,10 +22,15 @@ int 		NetworkManager::createSocket(const char *address) {
     return (0);
 }
 
-void 		NetworkManager::send(char *s) {
+void 		NetworkManager::send(string s) {
 
-    if (!strcpy(buf, s))
+    if (!strncpy(buf, s.c_str(), sizeof(buf)))
         fprintf(stderr, "empty message error\n");
+    
+    buf[sizeof(buf) - 1] = 0;
+
 	if (sendto(sockfd, buf, BUFLEN, 0, (struct sockaddr*)&serv_addr, slen) == -1)
             fprintf(stderr, "sendto() error\n");
+
+    usleep(5000);
 }

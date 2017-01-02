@@ -31,7 +31,6 @@ elseif(Linux)
             Unix/Unix_Socket.cpp
             Unix/UnixDynLibHandler.cpp
             )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
 endif ()
 
 

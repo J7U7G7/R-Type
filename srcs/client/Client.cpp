@@ -16,17 +16,53 @@ int 		Client::run() {
         cout << "Failed to load font" << endl;
 
     this->connectionToServer(&window);
+    window.clear();
     this->play(&window);
 
     return (0);
+}
+
+void        Client::catchKeyboardInputs() {
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) // Top
+        network.send("z");
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) // Left
+        network.send("q");
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) // Down
+        network.send("s");
+                
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))  // Right
+        network.send("d");
+                
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)     // Top left
+        && sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+         network.send("zq");
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)     // Top right
+        && sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        network.send("zd");
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)     // Bot left
+        && sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+        network.send("sq");
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)     // Bot right
+        && sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        network.send("sd");
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) // Shoot
+        network.send("shoot");
 }
 
 int 		Client::play(sf::RenderWindow *window) {
 
 	sf::Text    text;
 
-	 while (window->isOpen())
-    {
+    cout << "PLAY!" << endl;
+	while (window->isOpen()) {
+        
         sf::Event   event;
 
         while (window->pollEvent(event)) {
@@ -35,11 +71,12 @@ int 		Client::play(sf::RenderWindow *window) {
             if (event.type == sf::Event::Closed)
                 window->close();
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-                
-            }
+            catchKeyboardInputs();
 
-            
+            // Load things to draw
+
+            window->display();
+            window->clear();
         }
     }
 
@@ -54,8 +91,8 @@ int         Client::connectionToServer(sf::RenderWindow *window) {
     text.setFont(font);
     text.setCharacterSize(20);
 
-    while (window->isOpen())
-    {
+    while (window->isOpen()) {
+
         sf::Event   event;
 
         while (window->pollEvent(event)) {
@@ -80,7 +117,7 @@ int         Client::connectionToServer(sf::RenderWindow *window) {
                 if (network.createSocket(text_address.c_str()) != -1) {
                     cout << "Connected" << endl;
                     text.setString("Connected.");
-                    window->clear(sf::Color::Black);
+                    window->clear();
                     window->draw(text);                    
                     window->display();
                     return (0);

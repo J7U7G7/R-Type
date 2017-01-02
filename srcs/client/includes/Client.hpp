@@ -17,6 +17,7 @@ public:
 	int 			connectionToServer(sf::RenderWindow *);
 	int 			play(sf::RenderWindow *);
 
+	void 			catchKeyboardInputs();
 	NetworkManager  network;
     sf::Font   		font;
 

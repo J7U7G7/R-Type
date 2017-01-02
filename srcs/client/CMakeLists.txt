@@ -13,6 +13,10 @@ set(SRCS
         Client.cpp
         NetworkManager.cpp)
 
+if (Linux)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
+endif()
+
 link_directories(../../libs/SFML-2.4.1/lib)
 add_executable(r_type_client ${SRCS})
 
