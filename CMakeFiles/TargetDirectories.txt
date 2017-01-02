@@ -1,0 +1,8 @@
+/home/alphakush/Projet/Githubtek/R-Type/CMakeFiles/edit_cache.dir
+/home/alphakush/Projet/Githubtek/R-Type/CMakeFiles/rebuild_cache.dir
+/home/alphakush/Projet/Githubtek/R-Type/srcs/server/CMakeFiles/edit_cache.dir
+/home/alphakush/Projet/Githubtek/R-Type/srcs/server/CMakeFiles/rebuild_cache.dir
+/home/alphakush/Projet/Githubtek/R-Type/srcs/server/CMakeFiles/r_type_server.dir
+/home/alphakush/Projet/Githubtek/R-Type/srcs/client/CMakeFiles/rebuild_cache.dir
+/home/alphakush/Projet/Githubtek/R-Type/srcs/client/CMakeFiles/edit_cache.dir
+/home/alphakush/Projet/Githubtek/R-Type/srcs/client/CMakeFiles/r_type_client.dir

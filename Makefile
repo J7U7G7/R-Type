@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alphakush/Projet/Githubtek/R-Type/srcs/client
+CMAKE_SOURCE_DIR = /home/alphakush/Projet/Githubtek/R-Type
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alphakush/Projet/Githubtek/R-Type/srcs/client
+CMAKE_BINARY_DIR = /home/alphakush/Projet/Githubtek/R-Type
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -78,11 +67,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alphakush/Projet/Githubtek/R-Type/srcs/client/CMakeFiles /home/alphakush/Projet/Githubtek/R-Type/srcs/client/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alphakush/Projet/Githubtek/R-Type/CMakeFiles /home/alphakush/Projet/Githubtek/R-Type/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alphakush/Projet/Githubtek/R-Type/srcs/client/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alphakush/Projet/Githubtek/R-Type/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named r_type_server
+
+# Build rule for target.
+r_type_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 r_type_server
+.PHONY : r_type_server
+
+# fast build rule for target.
+r_type_server/fast:
+	$(MAKE) -f srcs/server/CMakeFiles/r_type_server.dir/build.make srcs/server/CMakeFiles/r_type_server.dir/build
+.PHONY : r_type_server/fast
+
+#=============================================================================
 # Target rules for targets named r_type_client
 
 # Build rule for target.
@@ -120,89 +133,8 @@ r_type_client: cmake_check_build_system
 
 # fast build rule for target.
 r_type_client/fast:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/build
+	$(MAKE) -f srcs/client/CMakeFiles/r_type_client.dir/build.make srcs/client/CMakeFiles/r_type_client.dir/build
 .PHONY : r_type_client/fast
-
-Client.o: Client.cpp.o
-
-.PHONY : Client.o
-
-# target to build an object file
-Client.cpp.o:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/Client.cpp.o
-.PHONY : Client.cpp.o
-
-Client.i: Client.cpp.i
-
-.PHONY : Client.i
-
-# target to preprocess a source file
-Client.cpp.i:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/Client.cpp.i
-.PHONY : Client.cpp.i
-
-Client.s: Client.cpp.s
-
-.PHONY : Client.s
-
-# target to generate assembly for a file
-Client.cpp.s:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/Client.cpp.s
-.PHONY : Client.cpp.s
-
-NetworkManager.o: NetworkManager.cpp.o
-
-.PHONY : NetworkManager.o
-
-# target to build an object file
-NetworkManager.cpp.o:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/NetworkManager.cpp.o
-.PHONY : NetworkManager.cpp.o
-
-NetworkManager.i: NetworkManager.cpp.i
-
-.PHONY : NetworkManager.i
-
-# target to preprocess a source file
-NetworkManager.cpp.i:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/NetworkManager.cpp.i
-.PHONY : NetworkManager.cpp.i
-
-NetworkManager.s: NetworkManager.cpp.s
-
-.PHONY : NetworkManager.s
-
-# target to generate assembly for a file
-NetworkManager.cpp.s:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/NetworkManager.cpp.s
-.PHONY : NetworkManager.cpp.s
-
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/r_type_client.dir/build.make CMakeFiles/r_type_client.dir/main.cpp.s
-.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -210,18 +142,10 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... r_type_server"
 	@echo "... r_type_client"
-	@echo "... Client.o"
-	@echo "... Client.i"
-	@echo "... Client.s"
-	@echo "... NetworkManager.o"
-	@echo "... NetworkManager.i"
-	@echo "... NetworkManager.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 .PHONY : help
 
 

@@ -1,6 +1,6 @@
-#include "main.hpp"
+#include "includes/main.hpp"
 #include "includes/Server.hpp"
-#include "MonsterDynLibHandler.hpp"
+#include "includes/MonsterDynLibHandler.hpp"
 
 int 		main() {
 	Server 	server;

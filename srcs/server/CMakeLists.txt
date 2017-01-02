@@ -14,7 +14,9 @@ set(SRCS
         Monster.cpp
         MonsterDynLibHandler.cpp
         Server.cpp
-        Player.cpp)
+        Player.cpp
+	Unix/UnixDynLibHandler.cpp
+        Unix/Unix_Socket.cpp)
 
 ## OS Dependent Sources
 
