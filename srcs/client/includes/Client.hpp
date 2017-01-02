@@ -19,17 +19,12 @@ public:
 	int		run();
 
 	private:
-<<<<<<< HEAD
 	int 	connectionToServer(sf::RenderWindow *);
 	int 	play(sf::RenderWindow *);
 	void 	catchKeyboardInputs();
 	int 	fillCatalog();
 	int     drawObject(sf::RenderWindow *, int, int, int, float, float, int, int, int);
-=======
-	int 			connectgame(sf::RenderWindow *);
-	int 			connectionToServer(sf::RenderWindow *);
-	int 			play(sf::RenderWindow *);
->>>>>>> 84b37499c5fda474eb21ec03dae8aaf48a0e4aa9
+	int 	connectGame(sf::RenderWindow *);
 
 	void 	renderPlayers(sf::RenderWindow *);
 	void 	renderBullets(sf::RenderWindow *);
