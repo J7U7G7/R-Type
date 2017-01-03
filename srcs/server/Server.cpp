@@ -72,6 +72,7 @@ void 		Server::handleConnections() {
 void 		Server::stop() {
 	is_running = false;
 }
+
 void		Server::run() {
 
 	std::string ip;

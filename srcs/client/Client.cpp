@@ -64,48 +64,97 @@ void        Client::catchKeyboardInputs() {
 
 int 		Client::play(sf::RenderWindow *window) {
 
-    sf::Sprite  bg;
-    sf::Texture background;
+    sf::Sprite  bgsprite;
+    sf::Texture bgtext;
+    sf::Sprite  bgsprite2;
+    sf::Texture bgtext2;
+    sf::Texture ship;
+    sf::Sprite sprite_ship;
+    sf::View view;
 
-    if (!background.loadFromFile("../../ressources/sprites/mapground.png"))
+    int speed = 6;
+
+    if (!bgtext.loadFromFile("../../ressources/sprites/mapground.png"))
         cout << "Failed to load Background map " << endl;
+    if (!bgtext2.loadFromFile("../../ressources/sprites/mapground.png"))
+        cout << "Failed to load Background map " << endl;
+    if (!ship.loadFromFile("../../ressources/models/player01.png"))
+        cout << "Failed to load ship sprite " << endl;
+
+    // Ship init
+    ship.setSmooth(true);
+    sprite_ship.setTexture(ship);
+    sprite_ship.setRotation(90);
+    sprite_ship.setScale(0.5f, 0.5f);
+    sprite_ship.setPosition(sf::Vector2f(100, 100));
 
     // Données brutes pour test
+/*
     PlayerShip player(500, 500);
     player_list.push_back(player);
-
+/*
     Bullet bullet(650, 500);
     bullet_list.push_back(bullet);    
 
     EnnemyShip ennemy(1000, 500);
     ennemy_list.push_back(ennemy);
+*/
+    bgsprite.setTexture(bgtext);
+    bgsprite2.setTexture(bgtext2);
+    bgsprite.setPosition(sf::Vector2f(0,0));
+    bgsprite2.setPosition(sf::Vector2f(1920, 0));
 
-    bg.setTexture(background);
 	while (window->isOpen()) {
         
         sf::Event   event;
 
         while (window->pollEvent(event)) {
-            window->clear(sf::Color::Black);
+            //window->clear(sf::Color::Black);
 
             if (event.type == sf::Event::Closed)
                 window->close();
 
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+            {
+                sprite_ship.move(0, -speed);
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+            {
+                sprite_ship.move(0, speed);
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+            {
+                sprite_ship.move(-speed, 0);
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+            {
+                sprite_ship.move(speed, 0);
+            }
             // receiveServerUpdates();
 
             catchKeyboardInputs();
+            view.reset(sf::FloatRect(0,0,1920,1080));
+            sf::Vector2f position(960,540);
+            position.x = sprite_ship.getPosition().x + (100 - 1000);
+            position.y = sprite_ship.getPosition().y + (100 - 1080);
+            if (position.x < 0)
+                position.x = 0;
+            if (position.y < 0)
+                position.y = 0;
+            view.reset(sf::FloatRect(position.x, position.y, 1920, 1080));
 
+            window->setView(view);
             // Load things to draw
-            window->draw(bg);
-            renderPlayers(window);
-            renderBullets(window);
-            renderEnnemyShips(window);
-
-            window->display();            
+            window->draw(bgsprite);
+            window->draw(bgsprite2);
+            window->draw(sprite_ship);
+            //renderPlayers(window);
+            //renderBullets(window);
+            //renderEnnemyShips(window);
+            window->display();
             window->clear();
         }
     }
-
 	return (0);
 }
 
@@ -252,6 +301,8 @@ int         Client::connectGame(sf::RenderWindow *window)
                     window->display();
                     return (0);
                 }
+                else
+                    cout << "Failed to join a game, try again" << endl;
                 text_address = "";
             }
         }

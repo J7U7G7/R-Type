@@ -5,7 +5,6 @@
 #include <SFML/Window.hpp>
 #include "main.hpp"
 #include "NetworkManager.hpp"
-
 #include "Bullet.hpp"
 #include "EnnemyShip.hpp"
 #include "PlayerShip.hpp"

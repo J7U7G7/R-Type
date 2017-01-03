@@ -1,8 +1,9 @@
 #include "PlayerShip.hpp"
 
-PlayerShip::PlayerShip() { }
+PlayerShip::PlayerShip() { 
+}
 
-PlayerShip::PlayerShip(int x, int y) { 
+PlayerShip::PlayerShip(int x, int y) {
 	setX(x);
 	setY(y);
 }
