@@ -5,17 +5,20 @@ class Bullet {
 
 public:
 	Bullet();
-	Bullet(int, int);
+	Bullet(int, int, int);
 	~Bullet();
 	
 	void 	setX(int);
 	void	setY(int);
+	void 	setId(int);
 	int 	getX();
 	int 	getY();
+	int 	getId();
 
 private:
 	int 	x;
 	int 	y;
+	int 	id;
 };
 
 #endif

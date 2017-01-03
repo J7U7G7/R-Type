@@ -14,7 +14,8 @@ set(SRCS
         NetworkManager.cpp
         Bullet.cpp
         PlayerShip.cpp
-        EnnemyShip.cpp)
+        EnnemyShip.cpp
+        MSGParser.cpp)
 
 if (Linux)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
@@ -27,7 +28,8 @@ add_definitions(-std=c++11)
 target_link_libraries(r_type_client
         -lsfml-graphics
         -lsfml-system
-        -lsfml-window)
+        -lsfml-window
+        -lpthread)
 
 #add_library(sfml-graphics SHARED
 #       sfml-system SHARED

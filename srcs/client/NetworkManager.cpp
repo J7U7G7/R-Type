@@ -22,9 +22,9 @@ int 		NetworkManager::createSocket(const char *address) {
     return (0);
 }
 
-int 		NetworkManager::send(string s) {
+int 		NetworkManager::send(string *s) {
 
-    if (!strncpy(buf, s.c_str(), sizeof(buf)))
+    if (!strncpy(buf, (*s).c_str(), sizeof(buf)))
         fprintf(stderr, "empty message error\n");
     
     buf[sizeof(buf) - 1] = 0;

@@ -21,7 +21,7 @@ int 		Client::run() {
         cout << "Critical error happened while filling catalog" << endl;
         return (-1);
     }
-    this->connectGame(&window);
+    // this->connectGame(&window);
     window.clear();
     this->play(&window);
 
@@ -31,62 +31,84 @@ int 		Client::run() {
 void        Client::catchKeyboardInputs() {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) // Top
-        network.send("z");
+        network.send(MsgMove(000));
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) // Left
-        network.send("q");
+        network.send(MsgMove(110));
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) // Down
-        network.send("s");
+        network.send(MsgMove(100));
                 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))  // Right
-        network.send("d");
+        network.send(MsgMove(010));
                 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)     // Top left
         && sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-         network.send("zq");
+         network.send(MsgMove(111));
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)     // Top right
         && sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        network.send("zd");
+        network.send(MsgMove(001));
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)     // Bot left
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)     // Down left
         && sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-        network.send("sq");
+        network.send(MsgMove(101));
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)     // Bot right
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)     // Down right
         && sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        network.send("sd");
+        network.send(MsgMove(011));
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) // Shoot
-        network.send("shoot");
+        network.send(MsgFire());
+}
+
+void        Client::networkLoop() { 
+
+    networkLoop_running = true;
+    while (networkLoop_running) {
+
+        string msg;
+
+        // msg = fonction_qui_récup_les_messages();
+
+        //if (msg == exit_message)
+        //    networkLoop_running = false;
+        cout << "on recoit des infos" << endl;
+        //CDetectMsg(msg);
+
+        sleep(1); // à remove
+    }
 }
 
 int 		Client::play(sf::RenderWindow *window) {
 
     sf::Sprite  bgsprite;
     sf::Texture bgtext;
-    sf::Sprite  bgsprite2;
-    sf::Texture bgtext2;
-    sf::Texture ship;
-    sf::Sprite sprite_ship;
-    sf::View view;
+    // sf::Sprite  bgsprite2;
+    // sf::Texture bgtext2;
+    // sf::Texture ship;
+    // sf::Sprite sprite_ship;
+    // sf::View view;
 
-    int speed = 6;
+    // int speed = 6;
 
-    if (!bgtext.loadFromFile("../../ressources/sprites/mapground.png"))
+    if (!bgtext.loadFromFile("../../ressources/sprites/background.png"))
         cout << "Failed to load Background map " << endl;
-    if (!bgtext2.loadFromFile("../../ressources/sprites/mapground.png"))
-        cout << "Failed to load Background map " << endl;
-    if (!ship.loadFromFile("../../ressources/models/player01.png"))
-        cout << "Failed to load ship sprite " << endl;
+
+    bgsprite.setTexture(bgtext);
+    bgsprite.setPosition(sf::Vector2f(0,0));
+
+    // if (!bgtext2.loadFromFile("../../ressources/sprites/mapground.png"))
+    //     cout << "Failed to load Background map " << endl;
+    // if (!ship.loadFromFile("../../ressources/models/player01.png"))
+    //     cout << "Failed to load ship sprite " << endl;
 
     // Ship init
-    ship.setSmooth(true);
-    sprite_ship.setTexture(ship);
-    sprite_ship.setRotation(90);
-    sprite_ship.setScale(0.5f, 0.5f);
-    sprite_ship.setPosition(sf::Vector2f(100, 100));
+    // ship.setSmooth(true);
+    // sprite_ship.setTexture(ship);
+    // sprite_ship.setRotation(90);
+    // sprite_ship.setScale(0.5f, 0.5f);
+    // sprite_ship.setPosition(sf::Vector2f(100, 100));
 
     // Données brutes pour test
 /*
@@ -99,11 +121,12 @@ int 		Client::play(sf::RenderWindow *window) {
     EnnemyShip ennemy(1000, 500);
     ennemy_list.push_back(ennemy);
 */
-    bgsprite.setTexture(bgtext);
-    bgsprite2.setTexture(bgtext2);
-    bgsprite.setPosition(sf::Vector2f(0,0));
-    bgsprite2.setPosition(sf::Vector2f(1920, 0));
 
+    // bgsprite2.setTexture(bgtext2);
+    // bgsprite2.setPosition(sf::Vector2f(1920, 0));
+
+
+    thread = std::thread(&Client::networkLoop, this);
 	while (window->isOpen()) {
         
         sf::Event   event;
@@ -114,47 +137,51 @@ int 		Client::play(sf::RenderWindow *window) {
             if (event.type == sf::Event::Closed)
                 window->close();
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
-            {
-                sprite_ship.move(0, -speed);
-            }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            {
-                sprite_ship.move(0, speed);
-            }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-            {
-                sprite_ship.move(-speed, 0);
-            }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            {
-                sprite_ship.move(speed, 0);
-            }
-            // receiveServerUpdates();
+            // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+            // {
+            //     sprite_ship.move(0, -speed);
+            // }
+            // else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+            // {
+            //     sprite_ship.move(0, speed);
+            // }
+            // else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+            // {
+            //     sprite_ship.move(-speed, 0);
+            // }
+            // else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+            // {
+            //     sprite_ship.move(speed, 0);
+            // }
 
             catchKeyboardInputs();
-            view.reset(sf::FloatRect(0,0,1920,1080));
-            sf::Vector2f position(960,540);
-            position.x = sprite_ship.getPosition().x + (100 - 1000);
-            position.y = sprite_ship.getPosition().y + (100 - 1080);
-            if (position.x < 0)
-                position.x = 0;
-            if (position.y < 0)
-                position.y = 0;
-            view.reset(sf::FloatRect(position.x, position.y, 1920, 1080));
 
-            window->setView(view);
+            // view.reset(sf::FloatRect(0,0,1920,1080));
+            // sf::Vector2f position(960,540);
+            // position.x = sprite_ship.getPosition().x + (100 - 1000);
+            // position.y = sprite_ship.getPosition().y + (100 - 1080);
+            // if (position.x < 0)
+            //     position.x = 0;
+            // if (position.y < 0)
+            //     position.y = 0;
+            // view.reset(sf::FloatRect(position.x, position.y, 1920, 1080));
+
+            // window->setView(view);
             // Load things to draw
+
+            // window->draw(bgsprite2);
+            // window->draw(sprite_ship);
+
             window->draw(bgsprite);
-            window->draw(bgsprite2);
-            window->draw(sprite_ship);
-            //renderPlayers(window);
-            //renderBullets(window);
-            //renderEnnemyShips(window);
+        
+            renderPlayers(window);
+            renderBullets(window);
+            renderEnnemyShips(window);
             window->display();
             window->clear();
         }
     }
+    thread.join();
 	return (0);
 }
 
@@ -205,17 +232,22 @@ int         Client::connectionToServer(sf::RenderWindow *window) {
                         || event.text.unicode > 159))) {
                     text_address += static_cast<char>(event.text.unicode);
                 }
+                if (event.text.unicode == '\b' && !text_address.empty())
+                    text_address.pop_back();
                 
                 text.setString("IP: " + text_address);
                 window->draw(text);
                 window->display();
             }
 
+
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) &&
                 !text_address.empty()) {
                 if (network.createSocket(text_address.c_str()) != -1) {
                     cout << "Connected" << endl;
                     text.setString("Connected.");
+                    network.send(MsgReady());
+                    network.send(MsgReady()); 
                     window->clear(sf::Color::Black);
                     window->draw(text);
                     window->display();
@@ -262,50 +294,52 @@ int         Client::drawObject(sf::RenderWindow *window, int pos_x, int pos_y, i
     window->draw(sprite);
 }
 
-int         Client::connectGame(sf::RenderWindow *window)
-{
-        string      text_address = "";
-    sf::Text    text;
+// int         Client::connectGame(sf::RenderWindow *window)
+// {
+//     string      text_address = "";
+//     sf::Text    text;
 
-    text.setFont(font);
-    text.setCharacterSize(20);
+//     text.setFont(font);
+//     text.setCharacterSize(20);
 
-    while (window->isOpen()) {
+//     while (window->isOpen()) {
 
-        sf::Event   event;
+//         sf::Event   event;
 
-        while (window->pollEvent(event)) {
-            window->clear(sf::Color::Black);
-            if (event.type == sf::Event::Closed)
-                window->close();
+//         while (window->pollEvent(event)) {
+//             window->clear(sf::Color::Black);
+//             if (event.type == sf::Event::Closed)
+//                 window->close();
 
-            if (event.type == sf::Event::TextEntered) {
-                if ((event.text.unicode > 30 &&
-                    (event.text.unicode < 127
-                        || event.text.unicode > 159))) {
-                    text_address += static_cast<char>(event.text.unicode);
-                }
+//             if (event.type == sf::Event::TextEntered) {
+//                 if ((event.text.unicode > 30 &&
+//                     (event.text.unicode < 127
+//                         || event.text.unicode > 159))) {
+//                     text_address += static_cast<char>(event.text.unicode);
+//                 }
+//                 if (event.text.unicode == '\b' && !text_address.empty())
+//                     text_address.pop_back();
                 
-                text.setString("Do you want to join a game ? " + text_address);
-                window->draw(text);
-                window->display();
-            }
+//                 text.setString("Do you want to join a game ? " + text_address);
+//                 window->draw(text);
+//                 window->display();
+//             }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) &&
-                !text_address.empty()) {
-                if (network.send(text_address.c_str()) != -1) {
-                    cout << "Success ! You join a R-Type game !" << endl;
-                    text.setString("Connected to the game");
-                    window->clear();
-                    window->draw(text);                    
-                    window->display();
-                    return (0);
-                }
-                else
-                    cout << "Failed to join a game, try again" << endl;
-                text_address = "";
-            }
-        }
-    }
-    return (0);
-}
+//             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) &&
+//                 !text_address.empty()) {
+//                 if (network.send(text_address.c_str()) != -1) {
+//                     cout << "Success ! You join a R-Type game !" << endl;
+//                     text.setString("Connected to the game");
+//                     window->clear();
+//                     window->draw(text);                    
+//                     window->display();
+//                     return (0);
+//                 }
+//                 else
+//                     cout << "Failed to join a game, try again" << endl;
+//                 text_address = "";
+//             }
+//         }
+//     }
+//     return (0);
+// }

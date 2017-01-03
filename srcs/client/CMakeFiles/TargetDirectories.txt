@@ -1,0 +1,3 @@
+/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles/rebuild_cache.dir
+/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles/edit_cache.dir
+/home/slymp/Epitech/Projets/R-Type/srcs/client/CMakeFiles/r_type_client.dir

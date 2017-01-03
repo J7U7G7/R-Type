@@ -5,17 +5,20 @@ class PlayerShip {
 
 public:
 	PlayerShip();
-	PlayerShip(int, int);	
+	PlayerShip(int, int, int);	
 	~PlayerShip();
 	
 	void 	setX(int);
 	void	setY(int);
+	void 	setId(int);
 	int 	getX();
 	int 	getY();
+	int 	getId();
 
 private:
 	int 	x;
 	int 	y;
+	int 	id;
 };
 
 #endif
